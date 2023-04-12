@@ -74,11 +74,13 @@ async def cb_handler(client, query: CallbackQuery):
     data = query.data 
     if data == "start":
         await query.message.edit_text(
-            text=f"""👋 Hello {user.mention},\n\n📝 𝘐 𝘢𝘮 Rename 𝘉𝘰𝘵 ! 𝘸𝘪𝘵𝘩 𝘮𝘶𝘭𝘵𝘪𝘱𝘭𝘦 𝘧𝘦𝘢𝘵𝘶𝘳𝘦𝘴. 𝘐 𝘤𝘢𝘯 𝘩𝘦𝘭𝘱 𝘺𝘰𝘶 𝘵𝘰 𝘴𝘪𝘮𝘱𝘭𝘪𝘧𝘺 𝘺𝘰𝘶𝘳 𝘸𝘰𝘳𝘬.\n\n ⚙ Check the following buttons to know more about me"""
-    button=InlineKeyboardMarkup([[
-        InlineKeyboardButton('❗️ʜᴇʟᴘ', callback_data='help'),
-        InlineKeyboardButton('⚒ ᴀʙᴏᴜᴛ', callback_data='about')
-        ]]))
+            text=f"""👋 Hello {query.from_user.mention},\n\n📝 𝘐 𝘢𝘮 Rename 𝘉𝘰𝘵 ! 𝘸𝘪𝘵𝘩 𝘮𝘶𝘭𝘵𝘪𝘱𝘭𝘦 𝘧𝘦𝘢𝘵𝘶𝘳𝘦𝘴. 𝘐 𝘤𝘢𝘯 𝘩𝘦𝘭𝘱 𝘺𝘰𝘶 𝘵𝘰 𝘴𝘪𝘮𝘱𝘭𝘪𝘧𝘺 𝘺𝘰𝘶𝘳 𝘸𝘰𝘳𝘬.\n\n ⚙ Check the following buttons to know more about me""",
+    button=InlineKeyboardMarkup( [[
+                InlineKeyboardButton('❗️ʜᴇʟᴘ', callback_data='help'),
+                InlineKeyboardButton('⚒ ᴀʙᴏᴜᴛ', callback_data='about')
+                ]]
+                )
+            )
     elif data == "help":
         await query.message.edit_text(
             text=mr.HELP_TXT,
